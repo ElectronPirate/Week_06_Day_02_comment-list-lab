@@ -25,7 +25,9 @@ class CommentForm extends Component {
     event.preventDefault();
     const author = this.state.author;
     const text = this.state.text;
-    console.log(author, text);
+    const newComment = {author: author, text: text}
+    this.props.handleCommentSubmit(newComment);
+    this.setState({author: '', text: ''})
   }
 
 

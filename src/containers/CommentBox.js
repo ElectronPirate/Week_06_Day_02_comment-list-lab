@@ -22,12 +22,19 @@ class CommentBox extends Component {
       ]
 
     }
+    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
   }
+
+  handleCommentSubmit(newComment){
+    const updatedComments = [...this.state.comments, newComment]
+    this.setState({comments: updatedComments})
+  }
+
   render(){
     return (
       <div className="comment-box">
       <h2>Comments</h2>
-      <CommentForm />
+      <CommentForm handleCommentSubmit={this.handleCommentSubmit} />
         <CommentList comments={this.state.comments} />
       </div>
     )
